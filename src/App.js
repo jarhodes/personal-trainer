@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CustomerList from './components/CustomerList';
+import TrainingList from './components/TrainingList';
+import PersistentDrawerLeft from './components/PersistentDrawerLeft';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CustomerTrainingList from './components/CustomerTrainingList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <PersistentDrawerLeft />
+
+        <Switch>
+          <Route exact path="/" component={CustomerList} />
+          <Route path="/customer/:id" children={<CustomerTrainingList />} />
+          <Route path="/training-sessions" component={TrainingList} />
+          <Route render={() => <h1>Path not found</h1>} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
