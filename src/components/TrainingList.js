@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
 import { Toolbar, Typography, Tooltip } from '@material-ui/core';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import moment from 'moment';
@@ -13,7 +13,6 @@ import EditIcon from '@material-ui/icons/Edit';
 function TrainingList () {
 
     const [training, setTraining] = useState([]);
-    const [redirect, setRedirect] = useState([]);
     const [customerList, setCustomerList] = useState([]);
     const emptyTraining = {
         id: 0,
@@ -80,11 +79,6 @@ function TrainingList () {
             .then(res => getTraining())
             .catch(err => console.log(err))
         }
-    }
-
-     if (redirect.length !== 0) {
-        console.log(redirect);
-        return <Redirect push to={redirect} />
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import { Toolbar, Typography, Button, Tooltip, IconButton } from '@material-ui/core';
-import { Redirect, Link } from 'react-router-dom';
+import { Toolbar, Typography, Tooltip, IconButton } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import CustomerForm from './CustomerForm';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
@@ -10,7 +10,6 @@ import AddIcon from '@material-ui/icons/Add';
 function CustomerList () {
 
     const [customer, setCustomer] = useState([]);
-    const [redirect, setRedirect] = useState([]);
     const emptyCustomer = {
         id: 0,
         firstname: "",
@@ -61,19 +60,6 @@ function CustomerList () {
             .then(res => getCustomers())
             .catch(err => console.log(err))
         }
-    }
-
-    const selectCustomer = (event, rowData) => {
-        const href = rowData.links[0].href;
-        const customerId = href.split('/').pop();
-        const redirectString = "/customer/"+customerId;
-        console.log(redirectString);
-        setRedirect(redirectString);
-    }
-
-    if (redirect.length !== 0) {
-        console.log(redirect);
-        return <Redirect push to={redirect} />
     }
 
     return (

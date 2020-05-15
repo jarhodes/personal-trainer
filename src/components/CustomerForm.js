@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,9 +9,9 @@ import { Tooltip, IconButton } from '@material-ui/core';
 
 function CustomerForm(props) {
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
-    const [customer, setCustomer] = React.useState([]);
+    const [customer, setCustomer] = useState([]);
 
     const handleClickOpen = () => {
         setCustomer({

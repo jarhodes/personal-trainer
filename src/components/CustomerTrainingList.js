@@ -31,7 +31,7 @@ function CustomerTrainingList (props) {
         .then(response => response.json())
         .then(data => setTraining(data.content))
     }
-
+/*
     const addTraining = (newTraining) => {
         newTraining.customer = "https://customerrest.herokuapp.com/api/customers/" + id;
         newTraining.date = moment(newTraining.date).format();
@@ -52,12 +52,7 @@ function CustomerTrainingList (props) {
         .then(res => getTraining())
         .catch(err => console.log(err))
     }
-
-
-    if (redirect.length !== 0) {
-        console.log(redirect);
-        return <Redirect push to={redirect} />
-    }
+*/
 
     return (
         <div>
