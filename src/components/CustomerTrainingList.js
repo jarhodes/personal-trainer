@@ -83,27 +83,6 @@ function CustomerTrainingList (props) {
                     }
                 })}
                 title={"Training sessions for " + customer.firstname +" "+ customer.lastname}
-                editable={
-                    {
-                        onRowAdd: newData =>
-                            new Promise( (resolve, reject) => {
-                                setTimeout( () => {
-                                    addTraining(newData);
-                                    resolve();
-                                }, 1000);
-                        }),
-                        onRowDelete: oldData => 
-                            new Promise( (resolve, reject) => {
-                                setTimeout( () => {
-                                    {
-                                        deleteTraining(oldData.link);
-                                        resolve();
-                                    }
-                                    resolve();
-                                }, 1000);
-                        })
-                    }
-                }
                 options={
                     { sorting: true,
                      pageSize: 20,
